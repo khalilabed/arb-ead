@@ -2,8 +2,8 @@
   <footer class="footer-section">
     <div class="overlay"></div>
     <div class="footer-content">
-      <h3 class="fw-bold pt-5">لا تتردد في التواصل معنا</h3>
-      <p >شاركنا اللحظات الجميلة وكون جزء من عيلتنا</p>
+      <h3 class="font-Bold pt-5">لا تتردد في التواصل معنا</h3>
+      <p  class="py-2 font-Regular">شاركنا اللحظات الجميلة وكون جزء من عيلتنا</p>
       <div class="d-flex justify-content-around ">
         <input
           type="text"
@@ -15,11 +15,11 @@
         <button type="button" class="btn btn-light">إشترك الآن</button>
       </div>
       <div class="box-bottom " >
-        <p>
+        <p class="font-Regular"> 
           للراغبين في إضافة فعالياتهم إلى المنصة الرجاء التواصل عن طريق البريد
           الإلكتروني
         </p>
-        <p>Digitalmedia@gea.gov.sa</p>
+        <p class="font-Regular">Techshef@gmail.com</p>
       </div>
     </div>
   </footer>
@@ -45,6 +45,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.footer-content{
+  width: 37%;
 }
 .w-size{
     width: 80%;

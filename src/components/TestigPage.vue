@@ -74,7 +74,7 @@
   </div> -->
   <div class="text-center py-5">
     <span
-      class="ms-2"
+      class="ms-2 "
       style="
         display: inline-block;
         width: 30px;
@@ -86,7 +86,7 @@
         font-weight: bold;
       "
       >1</span
-    >اختار قالبك المفضل
+    ><span class="font-Medium16 fw-normal">اختار قالبك المفضل </span>
   </div>
   <div class="container">
     <div class="pt-5">
@@ -160,10 +160,10 @@
           color: white;
           text-align: center;
           border-radius: 50%;
-          font-weight: bold;
         "
         >2</span
-      >قم بتحميل الشعار الخاص بك بصيغة PNG
+      >
+      <span class="font-Medium16 fw-normal">قم بتحميل الشعار الخاص بك بصيغة PNG</span>
       <div>
         <div class="file-input py-5">
           <input
@@ -195,7 +195,7 @@
           font-weight: bold;
         "
         >3</span
-      >قم بكتابة عبارة التهنئة
+      ><span class="font-Medium16 fw-normal">قم بكتابة عبارة التهنئة</span>
       <div class="py-4">
         <textarea
           v-model="inputText"
@@ -227,12 +227,13 @@
         font-weight: bold;
       "
       >4</span
-    >عاين بطاقتك وحملها فوراً
+    ><span class="font-Medium16 fw-normal">عاين بطاقتك وحملها فوراً </span>
     <div class="wit-img d-flex justify-content-center py-4">
       <div class="row">
         <div class="col-lg-12">
           <div class="preview">
             <canvas ref="canvas" width="600" height="500"></canvas>
+            <img ref="previewImage" />
           </div>
         </div>
       </div>
@@ -272,7 +273,7 @@ export default {
           alt: "Image 1",
         },
         {
-          src: require("@/assets/prev2.png"),
+          src: require("@/assets/hig.png"),
           alt: "Image 2",
         },
         {
@@ -316,7 +317,6 @@ export default {
           alt: "وصف الصورة 3",
         },
       ],
-      selectedImageIndex: null, // الفهرس للصورة المحددة
       logo: null, // الشعار المحمل
     };
   },
@@ -352,7 +352,9 @@ export default {
       this.selectedImageIndex = index;
 
       if (this.selectedImageIndex !== null) {
-        const selectedImageData = this.images[this.selectedImageIndex]; // معلومات الصورة المختارة
+        const selectedImageData = this.additionalImages[
+          this.selectedImageIndex
+        ]; // استخدام المصفوفة additionalImages
         const newSelectedImage = new Image();
         newSelectedImage.src = selectedImageData.src; // تعيين مسار الصورة
 
@@ -370,17 +372,15 @@ export default {
             this.$refs.canvas.width,
             this.$refs.canvas.height
           );
-          this.addTextAndLogoToImage(); // إضافة النص والشعار بمجرد تحديد الصورة
+          this.addTextAndLogoToImage();
 
-          // التمرير للأسفل بعد تحديد الصورة
           window.scrollTo({
-            top: window.innerHeight * 3.5, // ضبط ارتفاع التمرير كمضاعف من ارتفاع النافذة
-            behavior: "smooth", // يضيف التمرير الناعم للانتقال
+            top: window.innerHeight * 3.5,
+            behavior: "smooth",
           });
         };
       }
     },
-    // دالة لإضافة النص والشعار إلى الصورة
     // دالة لإضافة النص والشعار إلى الصورة
     addTextAndLogoToImage() {
       if (this.selectedImageIndex !== null) {
@@ -453,6 +453,8 @@ export default {
 </script>
 
 <style>
+@import "@/assets/css/styles.css";
+
 .preview {
   position: relative;
 }

@@ -2,8 +2,8 @@
   <header-page></header-page>
   <hero-section></hero-section>
   <div class="container py-5">
-    <h3 class="pt-5">شاركنا الاحتفال واختار تصميمك بنفسك</h3>
-    <p class="text-secondary">
+    <h3 class="pt-5 font-Bold">شاركنا الاحتفال واختار تصميمك بنفسك</h3>
+    <p class="text-secondary font-Regular20">
       التصميم اللي بيناسب حسب ذوقك واحتياجك ب4 خطوات بسيطة
     </p>
   </div>
@@ -42,9 +42,8 @@ export default {
   },
 };
 </script>
-<style>
-body {
-  direction: rtl;
-}
+<style scoped>
+@import "@/assets/css/styles.css";
+
 
 </style>

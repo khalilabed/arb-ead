@@ -16,33 +16,32 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mb-2 mb-lg-0 ">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active fw-bold" aria-current="page" href="#"
+            <a class="nav-link active " aria-current="page" href="#"
               >الرئيسة</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active fw-bold" aria-current="page" href="#"
+            <a class="nav-link active " aria-current="page" href="#"
               >الرئيسة</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active fw-bold" aria-current="page" href="#"
+            <a class="nav-link active " aria-current="page" href="#"
               >الرئيسة</a
             >
           </li>
-           <li class="nav-item">
-            <a class="nav-link active fw-bold" aria-current="page" href="#"
+          <li class="nav-item">
+            <a class="nav-link active " aria-current="page" href="#"
               >الرئيسة</a
             >
           </li>
         </ul>
       </div>
       <div class="d-flex">
-        <p class="ps-4">تواصل معنا</p>
-        <p>English</p>
-
+        <p class="ps-4 font-Regular">تواصل معنا</p>
+        <p class="font-Regular">English</p>
       </div>
     </div>
   </nav>
@@ -50,17 +49,20 @@
 <script>
 export default {};
 </script>
+
 <style scoped>
-.navbar{
-    background-color: #C7ECEC;
+@import "@/assets/css/styles.css";
+
+.navbar {
+  background-color: #c7ecec;
 }
 .navbar-brand img {
   width: 180px;
 }
-.nav-item{
-padding-left: 20px;
+.nav-item {
+  padding-left: 20px;
 }
-.navbar-nav{
-    padding-right: 20%;
+.navbar-nav {
+  padding-right: 20%;
 }
 </style>
