@@ -74,7 +74,7 @@
   </div> -->
   <div class="text-center py-5">
     <span
-      class="ms-2 "
+      class="ms-2"
       style="
         display: inline-block;
         width: 30px;
@@ -86,52 +86,14 @@
         font-weight: bold;
       "
       >1</span
-    ><span class="font-Medium16 fw-normal">اختار قالبك المفضل </span>
+    ><span class="font-Medium16 fw-normal"> اختار قالبك المفضل </span>
   </div>
   <div class="container">
-    <div class="pt-5">
-      <p class=""><span class="rect"></span>مربع</p>
-    </div>
+    <p class="pt-5"><span class="rect"></span>مربع</p>
     <div class="row">
-      <div class="col-lg-3" v-for="(image, index) in images" :key="index">
-        <img
-          :src="image.src"
-          :alt="image.alt"
-          class="tablinks"
-          @click="selectImage(index)"
-          :class="{ selected: selectedImageIndex === index }"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="container py-5">
-    <p class=""><span class="squ2"></span> مستطيل</p>
-    <div class="row">
-      <!-- الصور الثلاثة التي تريد إضافتها في col-lg-4 -->
-      <div
-        class="col-lg-4"
-        v-for="(image, index) in additionalImages"
-        :key="index"
-      >
-        <img
-          :src="image.src"
-          :alt="image.alt"
-          class="tablinks"
-          @click="selectImage(index)"
-          :class="{ selected: selectedImageIndex === index }"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="container py-5">
-    <p class=""><span class="squ"></span> مستطيل</p>
-    <div class="row">
-      <!-- الصور الثلاثة التي تريد إضافتها في col-lg-4 -->
       <div
         class="col-lg-3"
-        v-for="(image, index) in additionalImages3"
+        v-for="(image, index) in images.slice(0, 4)"
         :key="index"
       >
         <img
@@ -140,6 +102,43 @@
           class="tablinks"
           @click="selectImage(index)"
           :class="{ selected: selectedImageIndex === index }"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p class="pt-5"><span class="squ"></span> مستطيل</p>
+    <div class="row">
+      <div
+        class="col-lg-4"
+        v-for="(image, index) in images.slice(4, 7)"
+        :key="index"
+      >
+        <img
+          :src="image.src"
+          :alt="image.alt"
+          class="tablinks"
+          @click="selectImage(index + 4)"
+          :class="{ selected: selectedImageIndex === index + 4 }"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p class="pt-5"><span class="squ2"></span> مستطيل</p>
+
+    <div class="row">
+      <div
+        class="col-lg-3"
+        v-for="(image, index) in images.slice(7)"
+        :key="index"
+      >
+        <img
+          :src="image.src"
+          :alt="image.alt"
+          class="tablinks"
+          @click="selectImage(index + 7)"
+          :class="{ selected: selectedImageIndex === index + 7 }"
         />
       </div>
     </div>
@@ -163,7 +162,9 @@
         "
         >2</span
       >
-      <span class="font-Medium16 fw-normal">قم بتحميل الشعار الخاص بك بصيغة PNG</span>
+      <span class="font-Medium16 fw-normal"
+        >قم بتحميل الشعار الخاص بك بصيغة PNG</span
+      >
       <div>
         <div class="file-input py-5">
           <input
@@ -273,7 +274,7 @@ export default {
           alt: "Image 1",
         },
         {
-          src: require("@/assets/hig.png"),
+          src: require("@/assets/prev2.png"),
           alt: "Image 2",
         },
         {
@@ -284,8 +285,6 @@ export default {
           src: require("@/assets/prev2.png"),
           alt: "Image 4",
         },
-      ],
-      additionalImages: [
         {
           src: require("@/assets/mostatel.png"),
           alt: "وصف الصورة 1",
@@ -298,8 +297,6 @@ export default {
           src: require("@/assets/mostatel.png"),
           alt: "وصف الصورة 3",
         },
-      ],
-      additionalImages3: [
         {
           src: require("@/assets/hig.png"),
           alt: "وصف الصورة 1",
@@ -347,10 +344,9 @@ export default {
         this.inputText = this.inputText.slice(0, this.maxChars);
       }
     },
-    // دالة لتحديد الصورة المختارة
     selectImage(index) {
       this.selectedImageIndex = index;
-
+      this.addTextAndLogoToImage();
       if (this.selectedImageIndex !== null) {
         const selectedImageData = this.additionalImages[
           this.selectedImageIndex
@@ -380,6 +376,7 @@ export default {
           });
         };
       }
+      console.clear(); 
     },
     // دالة لإضافة النص والشعار إلى الصورة
     addTextAndLogoToImage() {
@@ -426,6 +423,7 @@ export default {
         };
       }
     },
+
     downloadImage() {
       if (this.$refs.canvas) {
         const canvas = this.$refs.canvas;
