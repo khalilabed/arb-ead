@@ -3,8 +3,8 @@
     <div class="overlay"></div>
     <div class="footer-content">
       <h3 class="font-Bold pt-5">لا تتردد في التواصل معنا</h3>
-      <p  class="py-2 font-Regular">شاركنا اللحظات الجميلة وكون جزء من عيلتنا</p>
-      <div class="d-flex justify-content-around ">
+      <p class="py-2 font-Regular">شاركنا اللحظات الجميلة وكون جزء من عيلتنا</p>
+      <div class="box-input-resop">
         <input
           type="text"
           class="form-control w-size"
@@ -12,10 +12,10 @@
           aria-describedby="emailHelp"
           placeholder="سجل بإيميلك وكون على اطلاع بكل جديد"
         />
-        <button type="button" class="btn btn-light">إشترك الآن</button>
+        <button type="button" class="btn btn-light me-2">إشترك الآن</button>
       </div>
-      <div class="box-bottom " >
-        <p class="font-Regular"> 
+      <div class="box-bottom">
+        <p class="font-Regular">
           للراغبين في إضافة فعالياتهم إلى المنصة الرجاء التواصل عن طريق البريد
           الإلكتروني
         </p>
@@ -46,15 +46,8 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.footer-content{
-  width: 37%;
-}
-.w-size{
-    width: 80%;
-    padding: 10px;
-}
 
-.box-bottom{
-    padding-top: 60px;
+.box-bottom {
+  padding-top: 60px;
 }
 </style>

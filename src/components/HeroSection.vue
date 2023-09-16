@@ -6,8 +6,8 @@
           <div class="box-icon">
             <img src="../assets/sodi.png" alt="" />
           </div>
-          <div class="">
-            <h4 class="py-3  font-Medium">في ظلّ علم يعلو وطن ويزهو</h4>
+          <div class="top-resp">
+            <h4 class="py-3 font-Medium">في ظلّ علم يعلو وطن ويزهو</h4>
             <p class="shadw font-Regular22">
               انضم إلى أجواء الفرح والفخر في احتفالاتنا <br />
               باليوم الوطني السعودي
@@ -15,7 +15,9 @@
           </div>
         </div>
         <div class="col-md-12 col-lg-6">
-          <p class="font-Medium24 text-rigth mr">ندعوك للاحتفال بتحقيق الأحلام</p>
+          <p class="font-Medium24 text-rigth mr">
+            ندعوك للاحتفال بتحقيق الأحلام
+          </p>
           <div class="black">
             <p class="text-white size font-Medium16">
               وبهالمناسبة السعيدة قررنا نقدملك هدية بتقدر تستخدمها بتصميمك بتعبر
@@ -44,7 +46,10 @@
                     />
                   </div>
                   <div class="my-2 but">
-                    <button type="submit" class="btn btn-light font-Regular14 blod-none">
+                    <button
+                      type="submit"
+                      class="btn btn-light font-Regular14 blod-none"
+                    >
                       أطلب هديتك الفورية
                     </button>
                   </div>
@@ -91,66 +96,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import "@/assets/css/styles.css";
-
-.hero-section {
-  background-image: url("../assets/Group.png");
-  background-size: cover;
-  background-position: center;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-text {
-  font-size: 24px;
-  margin-top: 20px;
-}
-.box-icon img {
-  width: 50px;
-}
-.blod-none{
-  font-weight: none !important;
-}
-.shadw {
-  text-shadow: 6px 10px 21px #007c2e;
-}
-/* .hero {
-  background-image: url("../assets/Group.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-attachment: fixed;
-  position: relative;
-}*/
-.black {
-  background-color: black;
-  width: 80%;
-  padding: 30px;
-  border-radius: 20px;
-}
-.mr,
-.black {
-  margin-right: 10%;
-}
-.dd img {
-  width: 100%;
-  height: 600px;
-}
-
-.dd {
-  position: relative;
-}
-.dds img {
-  width: 150px;
-}
-.size {
-  font-size: 13px;
-  font-weight: bold;
-}
-.but button {
-  width: 100%;
-}
 </style>
