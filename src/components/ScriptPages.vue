@@ -27,7 +27,7 @@
     >
       <!-- الشرائح -->
 
-      <Slide v-for="(image, index) in images.slice(0, 4)" :key="index">
+      <Slide v-for="(image, index) in images.slice(0, 6)" :key="index">
         <div class="carousel__item">
           <div class="container">
             <div class="row">
@@ -55,10 +55,10 @@
 
   <!-- start section img 2 -->
   <div class="container">
-    <p class="pt-5"><span class="squ"></span> مستطيل</p>
+    <p class="pt-5"><span class="squ2"></span> مستطيل</p>
     <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
       <!-- الشرائح -->
-      <Slide v-for="(image, index) in images.slice(4, 7)" :key="index">
+      <Slide v-for="(image, index) in images.slice(6, 9)" :key="index">
         <div class="carousel__item">
           <div class="container">
             <div class="row">
@@ -67,8 +67,8 @@
                   :src="image.src"
                   :alt="image.alt"
                   class="tablinks"
-                  @click="selectImage(index + 4)"
-                  :class="{ selected: selectedImageIndex === index + 4 }"
+                  @click="selectImage(index + 6)"
+                  :class="{ selected: selectedImageIndex === index + 6 }"
                 />
               </div>
             </div>
@@ -86,10 +86,10 @@
 
   <!-- start section img 3 -->
   <div class="container">
-    <p class="pt-5"><span class="squ2"></span> مستطيل</p>
+    <p class="pt-5"><span class="squ"></span> مستطيل</p>
     <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
       <!-- الشرائح -->
-      <Slide v-for="(image, index) in images.slice(7)" :key="index">
+      <Slide v-for="(image, index) in images.slice(9)" :key="index">
         <div class="carousel__item">
           <div class="container">
             <div class="row">
@@ -98,8 +98,8 @@
                   :src="image.src"
                   :alt="image.alt"
                   class="tablinks"
-                  @click="selectImage(index + 7)"
-                  :class="{ selected: selectedImageIndex === index + 7 }"
+                  @click="selectImage(index + 9)"
+                  :class="{ selected: selectedImageIndex === index + 9 }"
                 />
               </div>
             </div>
@@ -287,14 +287,22 @@ export default {
         },
         {
           src: require("@/assets/one-2.png"),
-          alt: "Image 2",
+          alt: "Image 1",
         },
         {
           src: require("@/assets/one-3.jpg"),
-          alt: "Image 3",
+          alt: "Image 1",
         },
         {
           src: require("@/assets/one-4.jpg"),
+          alt: "Image 2",
+        },
+        {
+          src: require("@/assets/one-5.png"),
+          alt: "Image 3",
+        },
+        {
+          src: require("@/assets/one-6.jpg"),
           alt: "Image 4",
         },
         {
@@ -323,6 +331,18 @@ export default {
         },
         {
           src: require("@/assets/three-4.jpg"),
+          alt: "وصف الصورة 3",
+        },
+        {
+          src: require("@/assets/three-5.jpg"),
+          alt: "وصف الصورة 1",
+        },
+        {
+          src: require("@/assets/three-6.jpg"),
+          alt: "وصف الصورة 2",
+        },
+        {
+          src: require("@/assets/three-7.jpg"),
           alt: "وصف الصورة 3",
         },
       ],

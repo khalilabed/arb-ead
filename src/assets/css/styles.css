@@ -260,6 +260,7 @@ li a{
 }
 .carousel__item img {
   width: 362px;
+  max-height:521px
 }
 
 .carousel__slide {
@@ -291,6 +292,7 @@ li a{
   height: 20px;
   border-radius: 50%;
 }
+
 /* the End tasting Page  */
 
 @media only screen and (max-width: 790px) {
@@ -348,5 +350,6 @@ canvas{
 }
 .carousel__item img {
   width: 100%;
+  
 }
 }
