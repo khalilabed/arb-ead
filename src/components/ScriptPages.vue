@@ -20,7 +20,11 @@
   <!-- start section img 1 -->
   <div class="container">
     <p class="pt-5"><span class="rect"></span>مربع</p>
-    <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+    <Carousel
+      :itemsToShow="isMobile ? 1 : 3"
+      :wrapAround="true"
+      :transition="500"
+    >
       <!-- الشرائح -->
 
       <Slide v-for="(image, index) in images.slice(0, 4)" :key="index">
@@ -52,7 +56,7 @@
   <!-- start section img 2 -->
   <div class="container">
     <p class="pt-5"><span class="squ"></span> مستطيل</p>
-    <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+    <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
       <!-- الشرائح -->
       <Slide v-for="(image, index) in images.slice(4, 7)" :key="index">
         <div class="carousel__item">
@@ -83,7 +87,7 @@
   <!-- start section img 3 -->
   <div class="container">
     <p class="pt-5"><span class="squ2"></span> مستطيل</p>
-    <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+    <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
       <!-- الشرائح -->
       <Slide v-for="(image, index) in images.slice(7)" :key="index">
         <div class="carousel__item">
@@ -261,6 +265,7 @@ export default {
   },
   data() {
     return {
+      isMobile: window.innerWidth < 768,
       colorOptions: [
         "#FF0000",
         "#00FF00",
@@ -325,6 +330,7 @@ export default {
     };
   },
   mounted() {
+    window.addEventListener("resize", this.updateIsMobile);
     this.canvasContext = this.$refs.canvas.getContext("2d");
     if (!this.canvasContext) {
       console.error("Failed to get 2D context for canvas.");
@@ -346,6 +352,9 @@ export default {
     logo: "addTextAndLogoToImage",
   },
   methods: {
+    updateIsMobile() {
+      this.isMobile = window.innerWidth < 768;
+    },
     async shareOnFacebook() {
       try {
         // تحضير البيانات

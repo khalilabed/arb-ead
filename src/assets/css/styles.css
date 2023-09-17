@@ -346,6 +346,6 @@ canvas{
   margin-left: 4%;
 }
 .carousel__item img {
-  width: 142%;
+  width: 100%;
 }
 }
