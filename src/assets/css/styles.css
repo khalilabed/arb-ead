@@ -50,6 +50,7 @@ body{font-family: var(--font-family-Bold) !important;}
 
 .font-Medium{font-family: var(--font-family-Medium); font-size: 28px;}
 .font-Medium16{font-family: var(--font-family-Medium); font-size: 16px;}
+.font-Medium19{font-family: var(--font-family-Medium); font-size:19px;}
 .font-Medium24{font-family: var(--font-family-Medium); font-size: 24px !important;}
 
 .font-Bold{font-family: var(--font-family-Bold); font-size: 32px;}

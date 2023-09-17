@@ -1,6 +1,6 @@
 <template>
   <!-- The Start Sections Selects Choose -->
-  <div class="text-center py-5">
+  <div class="text-center pt-5">
     <span
       class="ms-2"
       style="
@@ -14,7 +14,7 @@
         font-weight: bold;
       "
       >1</span
-    ><span class="font-Medium16 fw-normal"> اختار قالبك المفضل </span>
+    ><span class="font-Medium19"> اختار قالبك المفضل </span>
   </div>
 
   <!-- start section img 1 -->
@@ -132,7 +132,7 @@
         "
         >2</span
       >
-      <span class="font-Medium16 fw-normal"
+      <span class="font-Medium19"
         >قم بتحميل الشعار الخاص بك بصيغة PNG</span
       >
       <div>
@@ -166,7 +166,7 @@
           font-weight: bold;
         "
         >3</span
-      ><span class="font-Medium16 fw-normal">قم بكتابة عبارة التهنئة</span>
+      ><span class="font-Medium19">قم بكتابة عبارة التهنئة</span>
       <div class="py-4">
         <textarea
           v-model="inputText"
