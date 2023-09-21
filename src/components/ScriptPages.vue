@@ -32,6 +32,7 @@
           <div class="container">
             <div class="row">
               <div class="">
+                <a href="#wq">
                 <img
                   :src="image.src"
                   :alt="image.alt"
@@ -39,6 +40,7 @@
                   @click="selectImage(index)"
                   :class="{ selected: selectedImageIndex === index }"
                 />
+                </a>
               </div>
             </div>
           </div>
@@ -67,6 +69,7 @@
           <div class="container">
             <div class="row">
               <div class="">
+                <a href="#wq">
                 <img
                   :src="image.src"
                   :alt="image.alt"
@@ -74,6 +77,7 @@
                   @click="selectImage(index + 6)"
                   :class="{ selected: selectedImageIndex === index + 6 }"
                 />
+                </a>
               </div>
             </div>
           </div>
@@ -102,13 +106,15 @@
           <div class="container">
             <div class="row">
               <div class="">
-                <img
-                  :src="image.src"
-                  :alt="image.alt"
-                  class="tablinks"
-                  @click="selectImage(index + 9)"
-                  :class="{ selected: selectedImageIndex === index + 9 }"
-                />
+                <a href="#wq">
+                  <img
+                    :src="image.src"
+                    :alt="image.alt"
+                    class="tablinks"
+                    @click="selectImage(index + 9)"
+                    :class="{ selected: selectedImageIndex === index + 9 }"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -172,7 +178,7 @@
           font-weight: bold;
         "
         >3</span
-      ><span class="font-Medium19">قم بكتابة عبارة التهنئة</span>
+      ><span class="font-Medium19" id="wq">قم بكتابة عبارة التهنئة</span>
       <div class="py-4">
         <textarea
           v-model="inputText"
@@ -465,10 +471,10 @@ export default {
           );
           this.addTextAndLogoToImage();
 
-          window.scrollTo({
-            top: window.innerHeight * 3.5,
-            behavior: "smooth",
-          });
+          // window.scrollTo({
+          //   top: window.innerHeight * 3.5,
+          //   behavior: "smooth",
+          // });
         };
       }
       console.clear();
