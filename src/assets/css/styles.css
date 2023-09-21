@@ -290,6 +290,7 @@ li a{
 .color-circle {
   width: 20px;
   height: 20px;
+      border: 1px solid sienna;
   border-radius: 50%;
 }
 

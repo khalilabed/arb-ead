@@ -56,7 +56,11 @@
   <!-- start section img 2 -->
   <div class="container">
     <p class="pt-5"><span class="squ2"></span> مستطيل</p>
-    <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
+    <Carousel
+      :itemsToShow="isMobile ? 1 : 3"
+      :wrapAround="true"
+      :transition="500"
+    >
       <!-- الشرائح -->
       <Slide v-for="(image, index) in images.slice(6, 9)" :key="index">
         <div class="carousel__item">
@@ -87,7 +91,11 @@
   <!-- start section img 3 -->
   <div class="container">
     <p class="pt-5"><span class="squ"></span> مستطيل</p>
-    <Carousel :itemsToShow="isMobile ? 1 : 3" :wrapAround="true" :transition="500">
+    <Carousel
+      :itemsToShow="isMobile ? 1 : 3"
+      :wrapAround="true"
+      :transition="500"
+    >
       <!-- الشرائح -->
       <Slide v-for="(image, index) in images.slice(9)" :key="index">
         <div class="carousel__item">
@@ -132,9 +140,7 @@
         "
         >2</span
       >
-      <span class="font-Medium19"
-        >قم بتحميل الشعار الخاص بك بصيغة PNG</span
-      >
+      <span class="font-Medium19">قم بتحميل الشعار الخاص بك بصيغة PNG</span>
       <div>
         <div class="file-input py-5">
           <input
@@ -265,12 +271,14 @@ export default {
   },
   data() {
     return {
+      showWritingStep: false,
       isMobile: window.innerWidth < 768,
       colorOptions: [
         "#FF0000",
         "#00FF00",
         "#0000FF",
         "#FFFF00",
+        "#ffffff",
         "#ffc346",
         "#800080",
         "#9f469d",
@@ -495,28 +503,35 @@ export default {
           this.canvasContext.font = '30px "Sans Medium", Arial'; // حجم الخط ونمط الخط
           this.canvasContext.fillStyle = this.selectedColor; // تحديد لون النص
 
-          // موقع ثابت في الوسط الأفقي
-          const x = this.$refs.canvas.width / 2;
+          const lineHeight = 60; // زيادة ارتفاع السطر
+
+          let x = this.$refs.canvas.width / 2; // موقع أفقي في منتصف الكانفاس
+
+          const paddingX = 50; // تحديد Padding من اليمين واليسار بقيمة 50 بكسل (يمكنك تعديل هذه القيمة حسب رغبتك)
+
+          // موقع ثابت في الوسط الأفقي مع Padding من اليمين واليسار
+          x -= paddingX;
+
           // موقع ثابت في الوسط الرأسي
           let y = this.$refs.canvas.height / 2.8;
 
-          // النص مع سرد (\n) ليظهر على عدة أسطر
           const textLines = this.inputText.split("\n");
           for (let i = 0; i < textLines.length; i++) {
             this.canvasContext.textAlign = "center"; // توسيط النص أفقيًا
             this.canvasContext.textBaseline = "top"; // تعيين قاعدة النص لتكون في أعلى السطر
+            this.canvasContext.lineHeight = lineHeight; // تعيين ارتفاع السطر
 
             const text = textLines[i];
             const textWidth = this.canvasContext.measureText(text).width; // قياس طول النص
 
             // التحقق من طول النص ومقارنته بالحد الذي ترغب فيه
-            if (textWidth <= this.$refs.canvas.width) {
-              // إذا كان النص أقل من أو يساوي العرض الكلي للكانفاس
-              this.canvasContext.fillText(text, x, y);
+            if (textWidth <= this.$refs.canvas.width - 2 * paddingX) {
+              // إذا كان النص أقل من أو يساوي العرض الكلي للكانفاس مع الهوامش
+              this.canvasContext.fillText(text, x + paddingX, y);
             } else {
-              // إذا كان النص أطول من العرض الكلي للكانفاس
+              // إذا كان النص أطول من العرض الكلي للكانفاس مع الهوامش
               // قم بتقسيمه إلى أجزاء صغيرة لتناسب العرض
-              const maxTextWidth = this.$refs.canvas.width;
+              const maxTextWidth = this.$refs.canvas.width - 2 * paddingX;
               let startIndex = 0;
               while (startIndex < text.length) {
                 const remainingText = text.slice(startIndex);
@@ -525,13 +540,13 @@ export default {
                   maxTextWidth
                 );
                 const fittedText = remainingText.slice(0, fitLength);
-                this.canvasContext.fillText(fittedText, x, y);
-                y += 30; // زيادة قيمة y للانتقال إلى السطر التالي
+                this.canvasContext.fillText(fittedText, x + paddingX, y);
+                y += lineHeight; // زيادة قيمة y للانتقال إلى السطر التالي
                 startIndex += fitLength;
               }
             }
 
-            y += 30; // زيادة قيمة y للانتقال إلى السطر التالي
+            y += lineHeight; // زيادة قيمة y للانتقال إلى السطر التالي
           }
 
           // رسم الشعار إذا كان موجودًا
