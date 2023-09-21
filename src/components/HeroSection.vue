@@ -75,19 +75,24 @@ export default {
     async postData() {
       try {
         const response = await axios.post(
-          "http://192.168.3.103/celebration/public/api/gifts",
+          "https://website.moalhathloul.com/api/send-email-pdf",
           {
             name: this.name,
             email: this.email,
+            phone: this.phone,
           }
         );
         console.log("Data sent successfully:", response.data);
-        const newTab = window.open("https://google.com", "_blank");
+        const newTab = window.open(
+          "https://drive.google.com/file/d/1gP-FfEl5XW2WLhgAF1UqrIhU0fVr16z9/view?usp=sharing",
+          "_blank"
+        );
         if (newTab) {
           newTab.focus(); // Optional: Focus on the new tab
         }
         this.name = "";
         this.email = "";
+        this.phone = "";
       } catch (error) {
         console.error("Error sending data:", error);
       }
